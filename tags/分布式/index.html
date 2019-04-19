@@ -123,7 +123,7 @@
     <header>
         <!-- 标签这有且只能显示一个 -->
         
-            <a href="javascript: void(0);" class="cat">未分类</a>
+        <a class="cat-link" href="/categories/分布式系统/">分布式系统</a>
         
         <!-- 文章标题 -->
         
@@ -142,9 +142,7 @@
             标签：
             
     
-        <a href="/tags/分布式/" title="分布式">分布式</a> / 
-    
-        <a href="/tags/数学证明/" title="数学证明">数学证明</a>
+        <a href="/tags/分布式/" title="分布式">分布式</a>
     
 
         </span>
@@ -170,6 +168,56 @@
 </article>
 
     
+        <!-- 文章列表 item -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
+        <a class="cat-link" href="/categories/分布式系统/">分布式系统</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
+    	<a href="http://fengxinjie.club/2018/03/18/map/">
+    		Map分区存储与连续存储的性能对比
+    	</a>
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        fxj 发表于
+        <time datetime="2018-03-18T14:05:00.000Z">2018-03-18</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/分布式/" title="分布式">分布式</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;为了研究map在文件中的最佳存储方式，本次实践对比了两种存储方法在大文件中读操作上的性能差异。方法一为Key-Value联合存储方式，另一种则为Key-Value分区存储方式。<br><br>&nbsp;&nbsp;&nbsp;&nbsp;本次实践采用的map数据集为摩拜公司2017年开源的北京某一区域的321,4096条出行记录。在该数据集中，将Orderid定义为Key，其余的列定义为Value，数据集为csv格式。<br>
+            
+            </p><p class="more">
+                <a href="http://fengxinjie.club/2018/03/18/map/">阅读剩下更多</a>
+            </p>
+        </div>
+        <div class="post-thumbnail" data-img>
+            <a href="http://fengxinjie.club/2018/03/18/map/" title="Map分区存储与连续存储的性能对比">
+                
+                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/8.jpg" alt="默认配图">
+                
+            </a>
+        </div>
+    </div>
+</article>
+
+    
 
     
     <nav class="page-navigator">
@@ -188,6 +236,36 @@
         <!-- 文章分类 -->
 <ul class="widget-bd">
     
+    <li>
+        <a href="/categories/编程语言/">编程语言</a>
+        <span class="badge">(16)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/云计算/">云计算</a>
+        <span class="badge">(5)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Git/">Git</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/分布式系统/">分布式系统</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/面试总结/">面试总结</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/数据库/">数据库</a>
+        <span class="badge">(1)</span>
+    </li>
+    
 </ul>
     </section>
 
@@ -197,25 +275,27 @@
         <!-- 文章标签 -->
 <div class="widget-bd tag-wrap">
   
-    <a class="tag-item" href="/tags/C/" title="C++">C++ (10)</a>
+    <a class="tag-item" href="/tags/C/" title="C++">C++ (9)</a>
   
-    <a class="tag-item" href="/tags/Go/" title="Go">Go (4)</a>
+    <a class="tag-item" href="/tags/Go/" title="Go">Go (5)</a>
   
     <a class="tag-item" href="/tags/算法/" title="算法">算法 (3)</a>
   
     <a class="tag-item" href="/tags/Kubernetes/" title="Kubernetes">Kubernetes (1)</a>
   
-    <a class="tag-item" href="/tags/云计算/" title="云计算">云计算 (5)</a>
+    <a class="tag-item" href="/tags/docker/" title="docker">docker (1)</a>
   
     <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
   
-    <a class="tag-item" href="/tags/分布式/" title="分布式">分布式 (1)</a>
+    <a class="tag-item" href="/tags/分布式/" title="分布式">分布式 (2)</a>
   
-    <a class="tag-item" href="/tags/数学证明/" title="数学证明">数学证明 (1)</a>
+    <a class="tag-item" href="/tags/面试总结/" title="面试总结">面试总结 (1)</a>
   
-    <a class="tag-item" href="/tags/面试/" title="面试">面试 (1)</a>
+    <a class="tag-item" href="/tags/kubernetes/" title="kubernetes">kubernetes (2)</a>
   
     <a class="tag-item" href="/tags/数据库/" title="数据库">数据库 (1)</a>
+  
+    <a class="tag-item" href="/tags/openstack/" title="openstack">openstack (1)</a>
   
 </div>
     </section>

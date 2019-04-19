@@ -121,12 +121,14 @@
     <div class="post-content">
         <ul>
 <li><a href="https://www.cnblogs.com/AndyAo/p/8135980.html" target="_blank" rel="noopener">redis的持久化</a></li>
-<li><a href="https://www.cnblogs.com/lmjZone/p/8523010.html" target="_blank" rel="noopener">https握手过程</a><br><a id="more"></a></li>
-<li><p>死锁的必要条件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">互斥：每个资源要么已经分配给了一个进程，要么就是可用的。</span><br><span class="line">占有和等待：已经得到了某个资源的进程可以再请求新的资源。</span><br><span class="line">不可抢占：已经分配给一个进程的资源不能强制性地被抢占，它只能被占有它的进程显式地释放。</span><br><span class="line">环路等待：有两个或者两个以上的进程组成一条环路，该环路中的每个进程都在等待下一个进程所占有的资源。</span><br></pre></td></tr></table></figure>
+<li><a href="https://www.cnblogs.com/lmjZone/p/8523010.html" target="_blank" rel="noopener">https握手过程</a><br></li>
+<li>死锁的必要条件：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">互斥：每个资源要么已经分配给了一个进程，要么就是可用的。</span><br><span class="line">占有和等待：已经得到了某个资源的进程可以再请求新的资源。</span><br><span class="line">不可抢占：已经分配给一个进程的资源不能强制性地被抢占，它只能被占有它的进程显式地释放。</span><br><span class="line">环路等待：有两个或者两个以上的进程组成一条环路，该环路中的每个进程都在等待下一个进程所占有的资源。</span><br></pre></td></tr></table></figure>
 </li>
+</ul>
+<a id="more"></a>
+<ul>
 <li><p>进程间的通信方式：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. 管道pipe：管道是一种半双工的通信方式，数据只能单向流动，而且只能在具有亲缘关系的进程间使用。进程的亲缘关系通常是指父子进程关系。</span><br><span class="line">2. 命名管道FIFO：有名管道也是半双工的通信方式，但是它允许无亲缘关系进程间的通信。</span><br><span class="line">4. 消息队列MessageQueue：消息队列是由消息的链表，存放在内核中并由消息队列标识符标识。消息队列克服了信号传递信息少、管道只能承载无格式字节流以及缓冲区大小受限等缺点。</span><br><span class="line">5. 共享存储SharedMemory：共享内存就是映射一段能被其他进程所访问的内存，这段共享内存由一个进程创建，但多个进程都可以访问。共享内存是最快的 IPC 方式，它是针对其他进程间通信方式运行效率低而专门设计的。它往往与其他通信机制，如信号两，配合使用，来实现进程间的同步和通信。</span><br><span class="line">6. 信号量Semaphore：信号量是一个计数器，可以用来控制多个进程对共享资源的访问。它常作为一种锁机制，防止某进程正在访问共享资源时，其他进程也访问该资源。因此，主要作为进程间以及同一进程内不同线程之间的同步手段。</span><br><span class="line">7. 套接字Socket：套解口也是一种进程间通信机制，与其他通信机制不同的是，它可用于不同及其间的进程通信。</span><br><span class="line">8. 信号 ( sinal ) ： 信号是一种比较复杂的通信方式，用于通知接收进程某个事件已经发生。</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">管道pipe：管道是一种半双工的通信方式，数据只能单向流动，而且只能在具有亲缘关系的进程间使用。进程的亲缘关系通常是指父子进程关系。</span><br><span class="line">命名管道FIFO：有名管道也是半双工的通信方式，但是它允许无亲缘关系进程间的通信。</span><br><span class="line">消息队列MessageQueue：消息队列是由消息的链表，存放在内核中并由消息队列标识符标识。消息队列克服了信号传递信息少、管道只能承载无格式字节流以及缓冲区大小受限等缺点。</span><br><span class="line">共享存储SharedMemory：共享内存就是映射一段能被其他进程所访问的内存，这段共享内存由一个进程创建，但多个进程都可以访问。共享内存是最快的 IPC 方式，它是针对其他进程间通信方式运行效率低而专门设计的。它往往与其他通信机制，如信号两，配合使用，来实现进程间的同步和通信。</span><br><span class="line">信号量Semaphore：信号量是一个计数器，可以用来控制多个进程对共享资源的访问。它常作为一种锁机制，防止某进程正在访问共享资源时，其他进程也访问该资源。因此，主要作为进程间以及同一进程内不同线程之间的同步手段。</span><br><span class="line">套接字Socket：套解口也是一种进程间通信机制，与其他通信机制不同的是，它可用于不同及其间的进程通信。</span><br><span class="line">信号 ( sinal ) ： 信号是一种比较复杂的通信方式，用于通知接收进程某个事件已经发生。</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><a href="https://www.cnblogs.com/zmlctt/p/3690998.html" target="_blank" rel="noopener">TCP三次握手四次挥手</a></p>
 </li>
@@ -135,7 +137,7 @@
 <li><a href="https://www.zhihu.com/question/20596402" target="_blank" rel="noopener">Mysql中MyISAM和InnoDB 的区别</a></li>
 <li><a href="https://www.cnblogs.com/wannable/p/6021617.html" target="_blank" rel="noopener">孤儿进程/僵尸进程/守护进程</a></li>
 <li><p>进程和线程的区别：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">进程是资源分配的最小单位，线程是程序执行的最小单位。</span><br><span class="line"></span><br><span class="line">进程有自己的独立地址空间，每启动一个进程，系统就会为它分配地址空间，建立数据表来维护代码段、堆栈段和数据段，这种操作非常昂贵。而线程是共享进程中的数据的，使用相同的地址空间，因此CPU切换一个线程的花费远比进程要小很多，同时创建一个线程的开销也比进程要小很多。</span><br><span class="line"></span><br><span class="line">线程之间的通信更方便，同一进程下的线程共享全局变量、静态变量等数据，而进程之间的通信需要以通信的方式（IPC)进行。不过如何处理好同步与互斥是编写多线程程序的难点。但是多进程程序更健壮，多线程程序只要有一个线程死掉，整个进程也死掉了，而一个进程死掉并不会对另外一个进程造成影响，因为进程有自己独立的地址空间。</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">进程是资源分配的最小单位，线程是程序执行的最小单位。</span><br><span class="line">进程有自己的独立地址空间，每启动一个进程，系统就会为它分配地址空间，建立数据表来维护代码段、堆栈段和数据段，这种操作非常昂贵。而线程是共享进程中的数据的，使用相同的地址空间，因此CPU切换一个线程的花费远比进程要小很多，同时创建一个线程的开销也比进程要小很多。</span><br><span class="line">线程之间的通信更方便，同一进程下的线程共享全局变量、静态变量等数据，而进程之间的通信需要以通信的方式（IPC)进行。不过如何处理好同步与互斥是编写多线程程序的难点。但是多进程程序更健壮，多线程程序只要有一个线程死掉，整个进程也死掉了，而一个进程死掉并不会对另外一个进程造成影响，因为进程有自己独立的地址空间。</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><a href="https://blog.csdn.net/u012234115/article/details/54142273" target="_blank" rel="noopener">TCP和UDP的实现</a></p>
 </li>
@@ -147,13 +149,13 @@
     </div>
     <p class="post-meta">
         <span class="post-cat">分类：
-            
+            <a class="cat-link" href="/categories/面试总结/">面试总结</a>
         </span>
         <span class="post-tags">
             标签：
             
     
-        <a href="/tags/面试/" title="面试">面试</a>
+        <a href="/tags/面试总结/" title="面试总结">面试总结</a>
     
 
         </span>
@@ -179,7 +181,11 @@
     
     <span class="prev fl">
         上一篇<br>
-        <a href="javascript: void(0);">没有上一篇了</a>
+        <a href="/2019/04/19/go_test/">
+            
+                Go语言测试
+            
+        </a>
     </span>
     
 
@@ -208,6 +214,36 @@
         <!-- 文章分类 -->
 <ul class="widget-bd">
     
+    <li>
+        <a href="/categories/编程语言/">编程语言</a>
+        <span class="badge">(16)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/云计算/">云计算</a>
+        <span class="badge">(5)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Git/">Git</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/分布式系统/">分布式系统</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/面试总结/">面试总结</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/数据库/">数据库</a>
+        <span class="badge">(1)</span>
+    </li>
+    
 </ul>
     </section>
 
@@ -217,25 +253,27 @@
         <!-- 文章标签 -->
 <div class="widget-bd tag-wrap">
   
-    <a class="tag-item" href="/tags/C/" title="C++">C++ (10)</a>
+    <a class="tag-item" href="/tags/C/" title="C++">C++ (9)</a>
   
-    <a class="tag-item" href="/tags/Go/" title="Go">Go (4)</a>
+    <a class="tag-item" href="/tags/Go/" title="Go">Go (5)</a>
   
     <a class="tag-item" href="/tags/算法/" title="算法">算法 (3)</a>
   
     <a class="tag-item" href="/tags/Kubernetes/" title="Kubernetes">Kubernetes (1)</a>
   
-    <a class="tag-item" href="/tags/云计算/" title="云计算">云计算 (5)</a>
+    <a class="tag-item" href="/tags/docker/" title="docker">docker (1)</a>
   
     <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
   
-    <a class="tag-item" href="/tags/分布式/" title="分布式">分布式 (1)</a>
+    <a class="tag-item" href="/tags/分布式/" title="分布式">分布式 (2)</a>
   
-    <a class="tag-item" href="/tags/数学证明/" title="数学证明">数学证明 (1)</a>
+    <a class="tag-item" href="/tags/面试总结/" title="面试总结">面试总结 (1)</a>
   
-    <a class="tag-item" href="/tags/面试/" title="面试">面试 (1)</a>
+    <a class="tag-item" href="/tags/kubernetes/" title="kubernetes">kubernetes (2)</a>
   
     <a class="tag-item" href="/tags/数据库/" title="数据库">数据库 (1)</a>
+  
+    <a class="tag-item" href="/tags/openstack/" title="openstack">openstack (1)</a>
   
 </div>
     </section>

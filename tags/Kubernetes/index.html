@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
     <meta name="baidu-site-verification" content="dIcXMeY8Ya">
     
-    <title>`Kubernetes`标签下的文章 | 冯新杰</title>
+    <title>`kubernetes`标签下的文章 | 冯新杰</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <meta name="keywords" content="后端开发">
     <meta name="description" content="冯新杰">
@@ -56,15 +56,15 @@
         <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
         <ul class="menu hidden" id="JELON__menu">
             
-            <li rel="/tags/Kubernetes/index.html" class="item ">
+            <li rel="/tags/kubernetes/index.html" class="item ">
                 <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
             </li>
             
-            <li rel="/tags/Kubernetes/index.html" class="item ">
+            <li rel="/tags/kubernetes/index.html" class="item ">
                 <a href="/about/" title="关于我" class="icon-about">&nbsp;关于我</a>
             </li>
             
-            <li rel="/tags/Kubernetes/index.html" class="item ">
+            <li rel="/tags/kubernetes/index.html" class="item ">
                 <a href="/comment/" title="联系方式" class="icon-comment">&nbsp;联系方式</a>
             </li>
             
@@ -113,7 +113,7 @@
     <h3 class="widget-hd">
         <strong>
             
-                `Kubernetes`标签下的文章
+                `kubernetes`标签下的文章
             
         </strong>
     </h3>
@@ -123,28 +123,26 @@
     <header>
         <!-- 标签这有且只能显示一个 -->
         
-            <a href="javascript: void(0);" class="cat">未分类</a>
+        <a class="cat-link" href="/categories/云计算/">云计算</a>
         
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="http://fengxinjie.club/2018/06/07/centos-k8s/">
-    		基于 CentOS 的 Kubernetes 集群单机版部署教程
+    	<a href="http://fengxinjie.club/2018/09/21/kubeadm/">
+    		基于Ubuntu 16.04利用kubeadm搭建kubernetes
     	</a>
     </h3>
 
     </header>
     <p class="post-meta">
         fxj 发表于
-        <time datetime="2018-06-07T07:10:00.000Z">2018-06-07</time>
+        <time datetime="2018-09-21T11:33:00.000Z">2018-09-21</time>
         &nbsp;&nbsp;
         <span class="post-tags">
             标签：
             
     
-        <a href="/tags/Kubernetes/" title="Kubernetes">Kubernetes</a> / 
-    
-        <a href="/tags/云计算/" title="云计算">云计算</a>
+        <a href="/tags/kubernetes/" title="kubernetes">kubernetes</a>
     
 
         </span>
@@ -153,23 +151,72 @@
     <div class="post-content">
         <div class="post-excerpt">
             
-                <h2 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h2><ul>
-<li>关闭 CentOS 自带的防火墙服务：</li>
+                <ul>
+<li>在文件<code>/etc/hosts</code> 和 <code>/etc/hostname</code>中修改主机名</li>
+<li>换成清华的源，新建文件 <code>sources.list</code>，将一下内容添加进文件中<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.ustc.edu.cn/kubernetes/apt kubernetes-xenial main</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># systemctl disable firewalld</span></span><br><span class="line"><span class="comment"># systemctl stop firewalld</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>安装 etcd 和 Kubernetes软件(会自动安装Docker):</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># yum install -y etcd kubernetes</span></span><br></pre></td></tr></table></figure>
             
             <p class="more">
-                <a href="http://fengxinjie.club/2018/06/07/centos-k8s/">阅读剩下更多</a>
+                <a href="http://fengxinjie.club/2018/09/21/kubeadm/">阅读剩下更多</a>
             </p>
         </div>
         <div class="post-thumbnail" data-img>
-            <a href="http://fengxinjie.club/2018/06/07/centos-k8s/" title="基于 CentOS 的 Kubernetes 集群单机版部署教程">
+            <a href="http://fengxinjie.club/2018/09/21/kubeadm/" title="基于Ubuntu 16.04利用kubeadm搭建kubernetes">
                 
-                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/7.jpg" alt="默认配图">
+                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/1.jpg" alt="默认配图">
+                
+            </a>
+        </div>
+    </div>
+</article>
+
+    
+        <!-- 文章列表 item -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
+        <a class="cat-link" href="/categories/云计算/">云计算</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
+    	<a href="http://fengxinjie.club/2018/07/31/kubernetes/">
+    		基于Ubuntu16.04的Kubernetes的搭建方法
+    	</a>
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        fxj 发表于
+        <time datetime="2018-07-31T06:37:00.000Z">2018-07-31</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/kubernetes/" title="kubernetes">kubernetes</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <h2 id="搭建过程"><a href="#搭建过程" class="headerlink" title="搭建过程"></a>搭建过程</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;网盘下载地址(备用)：链接: <a href="https://pan.baidu.com/s/1E_hIRh2AtnSqstWV8wJHpA" target="_blank" rel="noopener">https://pan.baidu.com/s/1E_hIRh2AtnSqstWV8wJHpA</a> 密码: tx7x</p>
+<ul>
+<li>安装K8s<br>&nbsp;&nbsp;&nbsp;&nbsp;github下载地址：<a href="https://github.com/kubernetes/kubernetes" target="_blank" rel="noopener">https://github.com/kubernetes/kubernetes</a><br>&nbsp;&nbsp;&nbsp;&nbsp;kubernetes-server-linux-amd64.tar.gz上传到k8s的master节点。<br>&nbsp;&nbsp;&nbsp;&nbsp;kuberetes-node-linux-amd64.tar.gz 上传到k8s的node节点。（也可以使用server部分文件，node是server的子集）<br>IP规划：<br>&nbsp;&nbsp;&nbsp;&nbsp;master ： 10.112.40.223<br>&nbsp;&nbsp;&nbsp;&nbsp;node1：10.103.238.17 <br>
+            
+            <p class="more">
+                <a href="http://fengxinjie.club/2018/07/31/kubernetes/">阅读剩下更多</a>
+            </p>
+        </li></ul></div>
+        <div class="post-thumbnail" data-img>
+            <a href="http://fengxinjie.club/2018/07/31/kubernetes/" title="基于Ubuntu16.04的Kubernetes的搭建方法">
+                
+                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/1.jpg" alt="默认配图">
                 
             </a>
         </div>
@@ -195,6 +242,36 @@
         <!-- 文章分类 -->
 <ul class="widget-bd">
     
+    <li>
+        <a href="/categories/编程语言/">编程语言</a>
+        <span class="badge">(16)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/云计算/">云计算</a>
+        <span class="badge">(5)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/Git/">Git</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/分布式系统/">分布式系统</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/面试总结/">面试总结</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/数据库/">数据库</a>
+        <span class="badge">(1)</span>
+    </li>
+    
 </ul>
     </section>
 
@@ -204,25 +281,27 @@
         <!-- 文章标签 -->
 <div class="widget-bd tag-wrap">
   
-    <a class="tag-item" href="/tags/C/" title="C++">C++ (10)</a>
+    <a class="tag-item" href="/tags/C/" title="C++">C++ (9)</a>
   
-    <a class="tag-item" href="/tags/Go/" title="Go">Go (4)</a>
+    <a class="tag-item" href="/tags/Go/" title="Go">Go (5)</a>
   
     <a class="tag-item" href="/tags/算法/" title="算法">算法 (3)</a>
   
     <a class="tag-item" href="/tags/Kubernetes/" title="Kubernetes">Kubernetes (1)</a>
   
-    <a class="tag-item" href="/tags/云计算/" title="云计算">云计算 (5)</a>
+    <a class="tag-item" href="/tags/docker/" title="docker">docker (1)</a>
   
     <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
   
-    <a class="tag-item" href="/tags/分布式/" title="分布式">分布式 (1)</a>
+    <a class="tag-item" href="/tags/分布式/" title="分布式">分布式 (2)</a>
   
-    <a class="tag-item" href="/tags/数学证明/" title="数学证明">数学证明 (1)</a>
+    <a class="tag-item" href="/tags/面试总结/" title="面试总结">面试总结 (1)</a>
   
-    <a class="tag-item" href="/tags/面试/" title="面试">面试 (1)</a>
+    <a class="tag-item" href="/tags/kubernetes/" title="kubernetes">kubernetes (2)</a>
   
     <a class="tag-item" href="/tags/数据库/" title="数据库">数据库 (1)</a>
+  
+    <a class="tag-item" href="/tags/openstack/" title="openstack">openstack (1)</a>
   
 </div>
     </section>
