@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
+    
+    <title>Map分区存储与连续存储的性能对比 | 冯新杰的个人博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="keywords" content="Jelon, 前端, Web, 张德龙, 前端开发">
+    <meta name="description" content="Jelon个人前端小站">
+
+    
+    <link rel="alternative" href="/atom.xml" title="冯新杰的个人博客" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</head>
+</html>
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">冯新杰的个人博客</span>
+                    <span class="description">通信，C++，云计算，运维</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/2018/03/18/map/index.html" class="item ">
+                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+            </li>
+            
+            <li rel="/2018/03/18/map/index.html" class="item ">
+                <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+            </li>
+            
+            <li rel="/2018/03/18/map/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/2018/03/18/map/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://github.com/jangdelong" target="_blank">Github</a>
+                        |
+                    
+                        <a href="https://pages.coding.me" target="_blank">Hosted by Coding Pages</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <a href="http://weibo.com/jangdelong" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
+                    
+                        <a href="https://www.facebook.com/profile.php?id=100011855760219&amp;ref=bookmarks" class="qqweibo" target="_blank"><b>■</b> Facebook</a>
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/jelon.jpg" alt="avatar" title="Jelon">
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>Map分区存储与连续存储的性能对比</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        Jelon 发表于
+        <time datetime="2018-03-18T14:05:00.000Z">2018-03-18</time>
+    </p>
+    <div class="post-content">
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;为了研究map在文件中的最佳存储方式，本次实践对比了两种存储方法在大文件中读操作上的性能差异。方法一为Key-Value联合存储方式，另一种则为Key-Value分区存储方式。<br><br>&nbsp;&nbsp;&nbsp;&nbsp;本次实践采用的map数据集为摩拜公司2017年开源的北京某一区域的321,4096条出行记录。在该数据集中，将Orderid定义为Key，其余的列定义为Value，数据集为csv格式。<br><a id="more"></a><br>&nbsp;&nbsp;&nbsp;&nbsp;Key-Value联合存储方式的文件大致输出过程如下。首先将该数据集读入程序中，Orderid赋值给key，其余部分赋值给Value。输出过程是将每一条出行记录中的Key和Value用空格隔开输出到文件的一行，每条记录用换行符隔开，输出文件格式为txt。Key-Value分区存储方式相比于第一种方法不同之处在于文件的输出过程。该输出文件的区域分为Key区与Value区，Key区存储了所有的Key值以及对应Value值的存储地址，Value区存了所有的Value值，Key区结束之后用换行符代表该区结束，下一字节为Value区的开始。在输出到文件之前，需要在程序中确定Value的起始地址相对于文件起始地址的偏置（相差字节数）存在文件的开头。在Key区中，用空格符将Key值与偏置隔开，偏置用int型数据类型进行存储（4字节），不同Key值之间不设分隔符。Value区中，以换行符作为分隔符，文件的输出格式为bin。要想在Linux中查看二进制文件可用vim –b打开文件该文件，然后输入：%!xxd可查看。<br><br>&nbsp;&nbsp;&nbsp;&nbsp;为验证两种存储方法读操作的时间损耗，本次实践将map中每整数万个Key-Value取样作为样本，进行321次读操作并记录损耗时间。Key-Value联合存储方式采用getline函数读取，Key-Value分区存储方式采用read函数读取，而不能用get函数读取，get函数将每个字节依次读入会耗费大量的时间。将每个样本在文件中的位置和查询消耗的时间输出到csv文件中，在Rstudio平台中进行图形的绘制，绘制的图如下，横坐标为每个样本在文件中的存储顺序号（单位为万），纵坐标为该样本查询所消耗的时间（单位为秒)。<br><br><img src="/assets/blog_img/map/key_value.png" alt="性能对比图"><br>&nbsp;&nbsp;&nbsp;&nbsp;从上图可以得到，Key-Value联合存储方式和Key-Value分区存储方式随着key值在文件中不断靠后时间都有所增加，联合存储方式的增加幅度大于分区存储方式的幅度，图形的波动也相对较大。在第20万条记录以前，Key-Value联合方式在读操作的时间损耗要小于分区存储方式。在50万条记录之后，Key-Value分区存储方式的时间损耗比Key-Value联合存储方式小，两者的读操作时间差也随着Key值的不断靠后越来越大，Key-Value分区存储方式展现出了它在大数据模式下查询操作的性能优越性。<br><br>&nbsp;&nbsp;&nbsp;&nbsp;总结：Key-Value分区存储方式在大文件模式中读操作的性能总体上要优于Key-Value联合存储方式。但是，如果Key值的存储位置在文件的最前端，Key-Value分区存储的方式存储的文件查询却需要消耗更多的时间，还需要进一步地探索来进行此部分的优化。</p>
+
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/C/" title="C++">C++</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+  <div class="article-share clearfix text-center">
+    <div class="share-area">
+      <span class="share-txt">分享到：</span>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+    </div>
+  </div>
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br>
+        <a href="/2018/06/02/mysql/">
+            
+                Mysql常用命令总结
+            
+        </a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br>
+        <a href="javascript: void(0);">没有下一篇了</a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+  <script src="/js/comment.js"></script>
+  <div id="comments" class="comment">
+    <!--
+    <div class="sign-bar">
+      GitHub 已登录!
+      <span class="sign-link">登出</span>
+    </div>
+    <section class="box">
+      <div class="com-avatar"><img src="/img/jelon.jpg" alt="avatar"></div>
+      <div class="com-text">
+        <div class="main">
+          <textarea class="text-area-edited show" placeholder="欢迎评论！"></textarea>
+          <div class="text-area-preview"></div>
+        </div>
+        <div class="switch">
+          <div class="switch-item on">编辑</div>
+          <div class="switch-item">预览</div>
+        </div>
+        <div class="button">提交</div>
+      </div>
+    </section>
+    <section class="tips">注：评论支持 markdown 语法！</section>
+    <section class="list-wrap">
+      <ul class="list">
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">张德龙</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like liked">已赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">333333</div>
+          </div>
+        </li>
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">刘德华</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like">点赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">vvvvv</div>
+          </div>
+        </li>
+      </ul>
+      <div class="page-nav">
+        <a href="javascript: void(0);" class="item">1</a>
+        <a href="javascript: void(0);" class="item">2</a>
+        <a href="javascript: void(0);" class="item current">3</a>
+      </div>
+    </section>
+    -->
+  </div>
+  <script>
+  JELON.Comment({
+    container: 'comments',
+    label: 'map' || '2018/03/18/map/',
+    owner: 'your_github_id',
+    repo: 'your_blog_comments',
+    clientId: 'your_client_id',
+    clientSecret: 'your_client_secret'
+  });
+  </script>
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/C/" title="C++">C++ (10)</a>
+  
+    <a class="tag-item" href="/tags/Go/" title="Go">Go (4)</a>
+  
+    <a class="tag-item" href="/tags/Kubernetes/" title="Kubernetes">Kubernetes (1)</a>
+  
+    <a class="tag-item" href="/tags/云计算/" title="云计算">云计算 (5)</a>
+  
+    <a class="tag-item" href="/tags/算法/" title="算法">算法 (3)</a>
+  
+    <a class="tag-item" href="/tags/分布式/" title="分布式">分布式 (1)</a>
+  
+    <a class="tag-item" href="/tags/数学证明/" title="数学证明">数学证明 (1)</a>
+  
+    <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
+  
+    <a class="tag-item" href="/tags/面试/" title="面试">面试 (1)</a>
+  
+    <a class="tag-item" href="/tags/数据库/" title="数据库">数据库 (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="https://jelon.top" target="_blank" title="Jelon个人前端小站">前端博客小站</a>
+        </li>
+    
+        <li>
+            <a href="https://www.baidu.com" target="_blank" title="百度搜索">百度</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2019
+    
+
+    <a href="/">Jelon Loves You</a>
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
+</body>
+</html>

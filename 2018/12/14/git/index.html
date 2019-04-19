@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
+    
+    <title>Git学习之路 | 冯新杰的个人博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="keywords" content="Jelon, 前端, Web, 张德龙, 前端开发">
+    <meta name="description" content="Jelon个人前端小站">
+
+    
+    <link rel="alternative" href="/atom.xml" title="冯新杰的个人博客" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</head>
+</html>
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">冯新杰的个人博客</span>
+                    <span class="description">通信，C++，云计算，运维</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/2018/12/14/git/index.html" class="item ">
+                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+            </li>
+            
+            <li rel="/2018/12/14/git/index.html" class="item ">
+                <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+            </li>
+            
+            <li rel="/2018/12/14/git/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/2018/12/14/git/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://github.com/jangdelong" target="_blank">Github</a>
+                        |
+                    
+                        <a href="https://pages.coding.me" target="_blank">Hosted by Coding Pages</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <a href="http://weibo.com/jangdelong" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
+                    
+                        <a href="https://www.facebook.com/profile.php?id=100011855760219&amp;ref=bookmarks" class="qqweibo" target="_blank"><b>■</b> Facebook</a>
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/jelon.jpg" alt="avatar" title="Jelon">
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>Git学习之路</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        Jelon 发表于
+        <time datetime="2018-12-14T07:39:00.000Z">2018-12-14</time>
+    </p>
+    <div class="post-content">
+        <ul>
+<li>分布式VCS：服务端和客户端都有完整的版本库，脱离服务端，客户端照样可以管理版本，比集中式VCS更能提高版本管理效率<br><a id="more"></a></li>
+<li>最小配置<br>&nbsp;&nbsp;&nbsp;&nbsp;配置user信息. global对当前用户所有仓库有效，其余两个参数为local和system(这个基本不用)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">'your name'</span></span><br><span class="line">$ git config --global user.email <span class="string">'your email address'</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;显示config的配置可用<code>git config --list --global</code></p>
+<ul>
+<li>创建仓库<br>&nbsp;&nbsp;&nbsp;&nbsp;创建git仓库：（1）把已有的项目代码纳入Git管理：<code>$ cd 项目文件夹</code>, <code>$ git init</code>; (2) <code>$ git init your_project_name</code>, <code>$ cd your_project_name</code><br><br>&nbsp;&nbsp;&nbsp;&nbsp;基本命令: <code>git add your_file</code>, <code>git commit -m&quot;what you have done&quot;</code>, <code>git status</code>, <code>git log</code>,<code>git rm filename</code><br></li>
+<li>.git目录<br>&nbsp;&nbsp;&nbsp;&nbsp; <code>HEAD</code>文件记录的是当前处于的分支，<code>config</code>记录的与本仓库相关的信息(包括本地用户配置信息)，<code>refs</code>存放的分支和tag的各种信息</li>
+<li>commit、tree和blob的关系<br>&nbsp;&nbsp;&nbsp;&nbsp;一个commit对应一棵树，树可能会嵌套一些树以及有一些blob。在git根据文件内容产生blob，文件内容相同就代表同一个东西，只存储一个blob，跟文件名没关系<br></li>
+<li>一些基本操作命令<br>&nbsp;&nbsp;&nbsp;&nbsp;变更文件名或文件位置（已被管理）：<code>git mv 文件 新位置或新名</code>, 清空暂存区所有内容：<code>git reset --hard</code>, 切换分支:<code>git checkout new_branch</code><br>&nbsp;&nbsp;&nbsp;&nbsp;查看版本演变历史：<code>git log</code>,简单显示则加上参数:<code>git log --online</code>, 只显示最近的几次提交历史则加上参数:<code>git log -n4 --oneline</code>,查看<strong>所有分支</strong>log：<code>git log --all --graph</code>, –graph是为了方便查看演进历史添加的参数<br><br>&nbsp;&nbsp;&nbsp;&nbsp;基于某个分支<strong>创建并切换</strong>到新分支：<code>git checkout -b new_branch old_branch</code>; <strong>删除</strong>分支：<code>git branch -d branch_name</code>,如果警告则根据提示改用<code>-D</code><br><br>&nbsp;&nbsp;&nbsp;&nbsp;修改<strong>最新一次</strong>commit的message：<code>git commit --amend</code>,然后进行编辑更改;修改<strong>以前</strong>的commit的message:<code>git rebase -i his_parent_branch</code>, 然后在编辑器里根据情况把pick变为r，保存然后在下一个编辑框里修改message然后保存;把<strong>连续</strong>的多个commit整理成1个，使commit历史更为清晰：<code>git rebase -i their_parent_branch</code>,根据情况把pick改为s,保存在下一个编辑框里写上理由然后保存;<strong>不连续的</strong>commit在编辑器里调整pick后面分支的顺序以及把对应的pick变为s，保存后可能出现警告，根据提示运行<code>git rebase --continue</code>进行理由添加<br><br>&nbsp;&nbsp;&nbsp;&nbsp;比较两个commit的<strong>差异</strong>：<code>git diff commit1 commit2</code>,例如<code>git diff HEAD HEAD~1</code>HEAD~1表示HEAD的父亲, <code>git diff --cached</code>,–cached表示暂存区，跟HEAD之间的差异，头指针HEAD指向某个commit；<code>git diff</code>默认比较的是工作区与暂存区的区别,<code>git diff -- file_name</code>比较工作区与暂存区某个文件名的区别;查看不同提交指定文件的差异：<code>git diff commit1 commit2 -- filename</code>, 或者用分支名(是一个指针，指向该分支最近的一次提交)<br><br>&nbsp;&nbsp;&nbsp;&nbsp;变更暂存区用reset,变更工作区用checkout。使暂存区恢复成HEAD的状态,暂存区所做的变更都不要了：<code>git reset HEAD</code>;使工作区恢复成和暂存区一样:<code>git checkout -- filename</code>;取消暂存区<strong>部分文件</strong>的更改：<code>git reset HEAD -- filename</code>;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;消除最近几次提交：<code>git reset --hard preserved_newest_branch</code>,HEAD和暂存区还有工作区都会改变(小心使用)，例如<code>git reset --hard HEAD</code>,即取消工作区和暂存区所做的全部更改; <br><br>&nbsp;&nbsp;&nbsp;&nbsp;把当前状态存起来，进行其他操作，做完之后再把存的给弹出来:<code>git stash</code>,<code>git stash list</code>, <code>git stash pop</code>或<code>git stash apply</code>,apply会保留,pop直接弹出<br><br>&nbsp;&nbsp;&nbsp;&nbsp;<code>.gitignore</code>告诉git仓库哪些文件不需要纳入版本控制系统<br><br>&nbsp;&nbsp;&nbsp;&nbsp;本地协议分为哑协议与智能协议，<strong>智能协议</strong>有进度条，传输速度也更快(打包压缩），更推荐使用。哑协议:<code>git clone --bare file_path/.git another_path</code>，智能协议:<code>git clone --bare file://file_path/git another_path</code></li>
+</ul>
+
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/Git/" title="Git">Git</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+  <div class="article-share clearfix text-center">
+    <div class="share-area">
+      <span class="share-txt">分享到：</span>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+    </div>
+  </div>
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br>
+        <a href="/2018/12/15/sync_map/">
+            
+                Go语言并发安全字典
+            
+        </a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br>
+        <a href="/2018/12/13/buffer/">
+            
+                Go语言bytes.Buffer和bufio的基本使用教程
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+  <script src="/js/comment.js"></script>
+  <div id="comments" class="comment">
+    <!--
+    <div class="sign-bar">
+      GitHub 已登录!
+      <span class="sign-link">登出</span>
+    </div>
+    <section class="box">
+      <div class="com-avatar"><img src="/img/jelon.jpg" alt="avatar"></div>
+      <div class="com-text">
+        <div class="main">
+          <textarea class="text-area-edited show" placeholder="欢迎评论！"></textarea>
+          <div class="text-area-preview"></div>
+        </div>
+        <div class="switch">
+          <div class="switch-item on">编辑</div>
+          <div class="switch-item">预览</div>
+        </div>
+        <div class="button">提交</div>
+      </div>
+    </section>
+    <section class="tips">注：评论支持 markdown 语法！</section>
+    <section class="list-wrap">
+      <ul class="list">
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">张德龙</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like liked">已赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">333333</div>
+          </div>
+        </li>
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">刘德华</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like">点赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">vvvvv</div>
+          </div>
+        </li>
+      </ul>
+      <div class="page-nav">
+        <a href="javascript: void(0);" class="item">1</a>
+        <a href="javascript: void(0);" class="item">2</a>
+        <a href="javascript: void(0);" class="item current">3</a>
+      </div>
+    </section>
+    -->
+  </div>
+  <script>
+  JELON.Comment({
+    container: 'comments',
+    label: 'git' || '2018/12/14/git/',
+    owner: 'your_github_id',
+    repo: 'your_blog_comments',
+    clientId: 'your_client_id',
+    clientSecret: 'your_client_secret'
+  });
+  </script>
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/C/" title="C++">C++ (10)</a>
+  
+    <a class="tag-item" href="/tags/Go/" title="Go">Go (4)</a>
+  
+    <a class="tag-item" href="/tags/Kubernetes/" title="Kubernetes">Kubernetes (1)</a>
+  
+    <a class="tag-item" href="/tags/云计算/" title="云计算">云计算 (5)</a>
+  
+    <a class="tag-item" href="/tags/算法/" title="算法">算法 (3)</a>
+  
+    <a class="tag-item" href="/tags/分布式/" title="分布式">分布式 (1)</a>
+  
+    <a class="tag-item" href="/tags/数学证明/" title="数学证明">数学证明 (1)</a>
+  
+    <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
+  
+    <a class="tag-item" href="/tags/面试/" title="面试">面试 (1)</a>
+  
+    <a class="tag-item" href="/tags/数据库/" title="数据库">数据库 (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="https://jelon.top" target="_blank" title="Jelon个人前端小站">前端博客小站</a>
+        </li>
+    
+        <li>
+            <a href="https://www.baidu.com" target="_blank" title="百度搜索">百度</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2019
+    
+
+    <a href="/">Jelon Loves You</a>
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
+</body>
+</html>

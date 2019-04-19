@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
+    
+    <title>C++ Primer 知识总结（二） | 冯新杰的个人博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="keywords" content="Jelon, 前端, Web, 张德龙, 前端开发">
+    <meta name="description" content="Jelon个人前端小站">
+
+    
+    <link rel="alternative" href="/atom.xml" title="冯新杰的个人博客" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</head>
+</html>
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">冯新杰的个人博客</span>
+                    <span class="description">通信，C++，云计算，运维</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/2018/07/07/primer-2/index.html" class="item ">
+                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+            </li>
+            
+            <li rel="/2018/07/07/primer-2/index.html" class="item ">
+                <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+            </li>
+            
+            <li rel="/2018/07/07/primer-2/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/2018/07/07/primer-2/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://github.com/jangdelong" target="_blank">Github</a>
+                        |
+                    
+                        <a href="https://pages.coding.me" target="_blank">Hosted by Coding Pages</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <a href="http://weibo.com/jangdelong" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
+                    
+                        <a href="https://www.facebook.com/profile.php?id=100011855760219&amp;ref=bookmarks" class="qqweibo" target="_blank"><b>■</b> Facebook</a>
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/jelon.jpg" alt="avatar" title="Jelon">
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>C++ Primer 知识总结（二）</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        Jelon 发表于
+        <time datetime="2018-07-07T12:57:00.000Z">2018-07-07</time>
+    </p>
+    <div class="post-content">
+        <ul>
+<li><code>at</code>和下标操作只适用于string, vector, deque 和array，<code>back</code>不适用于 forward_list。在调用front和back（或解引用begin和end返回的迭代器）之前，要确保容器非空。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">c.back() //返回c中尾元素的引用。若c为空，函数行为未定义</span><br><span class="line">c.front() //返回c中首元素的引用。若c为空，函数行为未定义</span><br><span class="line">c[n] //返回c中下标为n的元素的引用，n是一个无符号整数。若n &gt;= c.size(), 则函数行为未定义</span><br><span class="line">c.at(n) //返回下标为n的元素的引用。如果下标越界，则抛出 out_of_range异常</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>管理容量的成员函数: vector 和 string 类型允许我们与它的实现中内存分配互动。 <code>capacity</code>操作告诉我们容器在不扩张内存空间的情况下可以容纳多少个元素。<code>reserve</code>操作允许我们通知容器它应该准备保存多少个元素。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">*shrink_to_fit 只适用于vector, string 和 deque, 它只是一个请求，标准库并不保证退还内存</span><br><span class="line">*capacity 和 reserve只适于vector 和 string</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">c.shrink_to_fit() //将capacity()减少为与size()相同大小</span><br><span class="line">c.capacity() //不重新分配内存空间的话，c可以保存多少元素</span><br><span class="line">c.reserve() //分配至少能容纳n个元素的内存空间</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>string每次搜索都会返回一个string::size_type 值，表示匹配发生位置的下标。如果搜索失败，则返回一个名为<code>string::npos</code>的static成员。</p>
+</li>
+<li><p>字符串数值转换：C++新标准引入类多个函数，可以实现数值数据与标准库string之间的转换</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"> /*</span><br><span class="line"> *一组重载函数，返回数值val的string表示。val可以是任何算术类型</span><br><span class="line"> */</span><br><span class="line"> to_string(val)</span><br><span class="line"></span><br><span class="line">/*返回s的起始字符串（表示整数内容）的数值，返回值类型分别是</span><br><span class="line">*int, long, unsigned long, long long, unsigned long long.</span><br><span class="line">*b表示转换所用的基数，默认值为10.p是size_t指针，</span><br><span class="line">*用来保存s中第一个非数值字符的下标，p默认为0,即，不保存下标。</span><br><span class="line">*/</span><br><span class="line">stoi(s,p,b)</span><br><span class="line">stol(s,p,b)</span><br><span class="line">stoul(s,p,b)</span><br><span class="line">stoull(s,p,b)</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">*返回s的起始字符串（表示浮点数内容）的数值，</span><br><span class="line">*返回值类型分别是<span class="built_in">float</span>, double 或 long double。参数p同上。</span><br><span class="line">*/</span><br><span class="line">stof(s,p)</span><br><span class="line">stod(s,p)</span><br><span class="line">stold(s,p)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>vector反向迭代器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt; vec = &#123;0,1,2,3,4,5,6,7,8,9&#125;;</span><br><span class="line"><span class="keyword">for</span>(auto r_iter = vec.crbegin(); r_iter != vec.crend(); ++r_iter)</span><br><span class="line">	cout &lt;&lt; *r_iter &lt;&lt; endl; //打印9,8,7, ... ，0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对一个map进行insert操作时，元素类型必须是pair。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">word_count.insert(&#123;word,1&#125;);</span><br><span class="line">word_count.insert(make_pair(word,1));</span><br><span class="line">word_count.insert(pair&lt;string, size_t&gt;(word,1));</span><br><span class="line">word_count.insert(pair&lt;string, size_t&gt;::value_type(word,1));</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>map 检测insert的返回值：<code>pair</code>的first成员是一个迭代器，指向具有给定关键字的元素；second成员是一个bool值，指出元素是插入成功还是已经存在于容器中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">auto ret = word_count.insert(&#123;word,1&#125;);</span><br><span class="line"><span class="keyword">if</span>(!ret.second) &#123;</span><br><span class="line">	++ret.first-&gt;second; //如果已在word_count中则递增计数器</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>内存耗尽</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int *p1 = new int; //如果分配失败，new 抛出 std::bad_alloc</span><br><span class="line">int *p2 = new (nothrow) int; //如果分配失败，new 返回一个空指针，阻止抛出异常</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/C/" title="C++">C++</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+  <div class="article-share clearfix text-center">
+    <div class="share-area">
+      <span class="share-txt">分享到：</span>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+    </div>
+  </div>
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br>
+        <a href="/2018/07/08/lambda/">
+            
+                c++ 11之 lambda
+            
+        </a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br>
+        <a href="/2018/06/29/primer-1/">
+            
+                C++ Primer 知识总结（一）
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+  <script src="/js/comment.js"></script>
+  <div id="comments" class="comment">
+    <!--
+    <div class="sign-bar">
+      GitHub 已登录!
+      <span class="sign-link">登出</span>
+    </div>
+    <section class="box">
+      <div class="com-avatar"><img src="/img/jelon.jpg" alt="avatar"></div>
+      <div class="com-text">
+        <div class="main">
+          <textarea class="text-area-edited show" placeholder="欢迎评论！"></textarea>
+          <div class="text-area-preview"></div>
+        </div>
+        <div class="switch">
+          <div class="switch-item on">编辑</div>
+          <div class="switch-item">预览</div>
+        </div>
+        <div class="button">提交</div>
+      </div>
+    </section>
+    <section class="tips">注：评论支持 markdown 语法！</section>
+    <section class="list-wrap">
+      <ul class="list">
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">张德龙</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like liked">已赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">333333</div>
+          </div>
+        </li>
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">刘德华</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like">点赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">vvvvv</div>
+          </div>
+        </li>
+      </ul>
+      <div class="page-nav">
+        <a href="javascript: void(0);" class="item">1</a>
+        <a href="javascript: void(0);" class="item">2</a>
+        <a href="javascript: void(0);" class="item current">3</a>
+      </div>
+    </section>
+    -->
+  </div>
+  <script>
+  JELON.Comment({
+    container: 'comments',
+    label: 'primer-2' || '2018/07/07/primer-2/',
+    owner: 'your_github_id',
+    repo: 'your_blog_comments',
+    clientId: 'your_client_id',
+    clientSecret: 'your_client_secret'
+  });
+  </script>
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/C/" title="C++">C++ (10)</a>
+  
+    <a class="tag-item" href="/tags/Go/" title="Go">Go (4)</a>
+  
+    <a class="tag-item" href="/tags/Kubernetes/" title="Kubernetes">Kubernetes (1)</a>
+  
+    <a class="tag-item" href="/tags/云计算/" title="云计算">云计算 (5)</a>
+  
+    <a class="tag-item" href="/tags/算法/" title="算法">算法 (3)</a>
+  
+    <a class="tag-item" href="/tags/分布式/" title="分布式">分布式 (1)</a>
+  
+    <a class="tag-item" href="/tags/数学证明/" title="数学证明">数学证明 (1)</a>
+  
+    <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
+  
+    <a class="tag-item" href="/tags/面试/" title="面试">面试 (1)</a>
+  
+    <a class="tag-item" href="/tags/数据库/" title="数据库">数据库 (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="https://jelon.top" target="_blank" title="Jelon个人前端小站">前端博客小站</a>
+        </li>
+    
+        <li>
+            <a href="https://www.baidu.com" target="_blank" title="百度搜索">百度</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2019
+    
+
+    <a href="/">Jelon Loves You</a>
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
+</body>
+</html>
