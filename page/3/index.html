@@ -129,6 +129,62 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
+    	<a href="http://fengxinjie.club/2018/06/29/primer-1/">
+    		C++ Primer 知识总结（一）
+    	</a>
+    </h3>
+
+    </header>
+    <p class="post-meta">
+        fxj 发表于
+        <time datetime="2018-06-29T12:49:00.000Z">2018-06-29</time>
+        &nbsp;&nbsp;
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/C/" title="C++">C++</a>
+    
+
+        </span>
+    </p>
+
+    <div class="post-content">
+        <div class="post-excerpt">
+            
+                <ul>
+<li><p>iostream 库包含两个基础类型istream和ostream，<strong>cin</strong>为istream类型的对象，<strong>cout</strong>是ostream的对象。标准库还定义类其他两个ostream对象，<strong>cerr</strong>和<strong>clog</strong>。cerr输出警告和错误信息，clog通常用于报告程序的执行信息，存入一个日志文件中。</p>
+</li>
+<li><p><strong>endl</strong>的效果是结束当前行，并将与设备关联的<strong>缓冲区</strong>中的内容刷到设备中，可以保证所有的输出都真正写入到输出流中，而不是仅停留在内存中等待写入流（不写endl，如果程序崩溃，输出缓冲区不会被刷新）。由于设备的写操作可能很耗时，允许操作系统将多个输出操作组合为单一的设备写操作可以带来很大的性能提升。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; <span class="string">"hi"</span> &lt;&lt; endl; //输出hi和一个换行，然后刷新缓冲区</span><br><span class="line">cout &lt;&lt; <span class="string">"hi"</span> &lt;&lt; flush; //输出hi，然后刷新缓冲区，不附加任何额外字符</span><br><span class="line">cout &lt;&lt; <span class="string">"hi"</span> &lt;&lt; ends; //输出hi和一个空字符，然后刷新缓冲区</span><br><span class="line"></span><br><span class="line">cout &lt;&lt; unitbuf; //所有输出操作后都会立即刷新缓冲区</span><br><span class="line">cout &lt;&lt; nounitbuf; //回到正常的缓冲模式</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化不是赋值，初始化的含义是创建变量时赋予其一个初始值，而赋值的含义是把对象的当前值擦除，以一个新值来替代。</p>
+            
+            <p class="more">
+                <a href="http://fengxinjie.club/2018/06/29/primer-1/">阅读剩下更多</a>
+            </p>
+        </li></ul></div>
+        <div class="post-thumbnail" data-img>
+            <a href="http://fengxinjie.club/2018/06/29/primer-1/" title="C++ Primer 知识总结（一）">
+                
+                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/9.jpg" alt="默认配图">
+                
+            </a>
+        </div>
+    </div>
+</article>
+
+    
+        <!-- 文章列表 item -->
+<article class="post">
+    <header>
+        <!-- 标签这有且只能显示一个 -->
+        
+        <a class="cat-link" href="/categories/编程语言/">编程语言</a>
+        
+        <!-- 文章标题 -->
+        
+    <h3 class="post-title">
     	<a href="http://fengxinjie.club/2018/06/27/kaobeigouzaohanshu/">
     		C++ 拷贝构造函数
     	</a>
@@ -513,6 +569,11 @@
     </li>
     
     <li>
+        <a href="/categories/中间件/">中间件</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
         <a href="/categories/云计算/">云计算</a>
         <span class="badge">(5)</span>
     </li>
@@ -549,6 +610,8 @@
     <a class="tag-item" href="/tags/C/" title="C++">C++ (9)</a>
   
     <a class="tag-item" href="/tags/Go/" title="Go">Go (5)</a>
+  
+    <a class="tag-item" href="/tags/NSQ/" title="NSQ">NSQ (1)</a>
   
     <a class="tag-item" href="/tags/算法/" title="算法">算法 (3)</a>
   
