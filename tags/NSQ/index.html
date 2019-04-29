@@ -128,7 +128,7 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="http://fengxinjie.club/2019/04/24/NSQ/">
+    	<a href="http://fengxinjie-bupt.github.io/2019/04/24/NSQ/">
     		NSQ知识总结
     	</a>
     </h3>
@@ -154,11 +154,11 @@
                 <h5 id="NSQ安装及简介"><a href="#NSQ安装及简介" class="headerlink" title="NSQ安装及简介"></a>NSQ安装及简介</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;进入官网<a href="http://nsq.io/deployment/installing.html" target="_blank" rel="noopener">下载页面</a>,选择所需版本。windows安装NSQ只需要解压后在PATH追加bin目录即可。<br><br>&nbsp;&nbsp;&nbsp;&nbsp;NSQ由 3 个守护进程组成:<strong>nsqd</strong>是接收、队列和传送消息到客户端的守护进程；<strong>nsqlookupd</strong>是管理的拓扑信息，并提供了最终一致发现服务的守护进程；<strong>nsqadmin</strong>是一个Web UI来实时监控集群(和执行各种管理任务)。topic是NSQ消息发布的逻辑关键词,可以理解为人为定义的一种消息类型。当生产者producer初次发布带topic的消息给nsqd时,如果topic不存在，则会在nsqd中创建该topic。当生产者每次发布消息的时候,消息会采用多播的方式被拷贝到各个channel中, channel 起到队列的作用。 一个channel一般会有多个consumer连接。假设所有已连接的consumer处于准备接收消息的状态，每个消息将被传递到一个随机的consumer。Channel会将消息进行排列，如果没有consumer读取消息，消息首先会在内存中排队，当量太大时就会被保存到磁盘中。 producer不必去发现其他的nsqd节点，他们总是可以向本地nsqd实例发布消息。nsqd节点首先会向nsqlookup广播他们的位置信息，一旦它们注册成功，consumer将会从nsqlookup服务器节点上发现所有包含事件topic的nsqd节点。<br><br>
             
             </p><p class="more">
-                <a href="http://fengxinjie.club/2019/04/24/NSQ/">阅读剩下更多</a>
+                <a href="http://fengxinjie-bupt.github.io/2019/04/24/NSQ/">阅读剩下更多</a>
             </p>
         </div>
         <div class="post-thumbnail" data-img>
-            <a href="http://fengxinjie.club/2019/04/24/NSQ/" title="NSQ知识总结">
+            <a href="http://fengxinjie-bupt.github.io/2019/04/24/NSQ/" title="NSQ知识总结">
                 
                     <!--
                     <img src="/img/blog_thumbnail/11.jpg" class="thumbnail">
@@ -195,13 +195,13 @@
     </li>
     
     <li>
-        <a href="/categories/开发工具/">开发工具</a>
-        <span class="badge">(2)</span>
+        <a href="/categories/云计算/">云计算</a>
+        <span class="badge">(5)</span>
     </li>
     
     <li>
-        <a href="/categories/云计算/">云计算</a>
-        <span class="badge">(5)</span>
+        <a href="/categories/开发工具/">开发工具</a>
+        <span class="badge">(2)</span>
     </li>
     
     <li>
@@ -228,25 +228,25 @@
         <!-- 文章标签 -->
 <div class="widget-bd tag-wrap">
   
-    <a class="tag-item" href="/tags/C/" title="C++">C++ (9)</a>
-  
     <a class="tag-item" href="/tags/Go/" title="Go">Go (5)</a>
   
     <a class="tag-item" href="/tags/算法/" title="算法">算法 (3)</a>
   
-    <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
-  
     <a class="tag-item" href="/tags/Kubernetes/" title="Kubernetes">Kubernetes (3)</a>
   
-    <a class="tag-item" href="/tags/分布式/" title="分布式">分布式 (2)</a>
+    <a class="tag-item" href="/tags/C/" title="C++">C++ (9)</a>
   
     <a class="tag-item" href="/tags/docker/" title="docker">docker (1)</a>
   
+    <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
+  
+    <a class="tag-item" href="/tags/分布式/" title="分布式">分布式 (2)</a>
+  
     <a class="tag-item" href="/tags/面试总结/" title="面试总结">面试总结 (1)</a>
   
-    <a class="tag-item" href="/tags/数据库/" title="数据库">数据库 (1)</a>
-  
     <a class="tag-item" href="/tags/NSQ/" title="NSQ">NSQ (1)</a>
+  
+    <a class="tag-item" href="/tags/数据库/" title="数据库">数据库 (1)</a>
   
     <a class="tag-item" href="/tags/openstack/" title="openstack">openstack (1)</a>
   

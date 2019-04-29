@@ -129,7 +129,7 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="http://fengxinjie.club/2019/04/24/NSQ/">
+    	<a href="http://fengxinjie-bupt.github.io/2019/04/24/NSQ/">
     		NSQ知识总结
     	</a>
     </h3>
@@ -155,11 +155,11 @@
                 <h5 id="NSQ安装及简介"><a href="#NSQ安装及简介" class="headerlink" title="NSQ安装及简介"></a>NSQ安装及简介</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;进入官网<a href="http://nsq.io/deployment/installing.html" target="_blank" rel="noopener">下载页面</a>,选择所需版本。windows安装NSQ只需要解压后在PATH追加bin目录即可。<br><br>&nbsp;&nbsp;&nbsp;&nbsp;NSQ由 3 个守护进程组成:<strong>nsqd</strong>是接收、队列和传送消息到客户端的守护进程；<strong>nsqlookupd</strong>是管理的拓扑信息，并提供了最终一致发现服务的守护进程；<strong>nsqadmin</strong>是一个Web UI来实时监控集群(和执行各种管理任务)。topic是NSQ消息发布的逻辑关键词,可以理解为人为定义的一种消息类型。当生产者producer初次发布带topic的消息给nsqd时,如果topic不存在，则会在nsqd中创建该topic。当生产者每次发布消息的时候,消息会采用多播的方式被拷贝到各个channel中, channel 起到队列的作用。 一个channel一般会有多个consumer连接。假设所有已连接的consumer处于准备接收消息的状态，每个消息将被传递到一个随机的consumer。Channel会将消息进行排列，如果没有consumer读取消息，消息首先会在内存中排队，当量太大时就会被保存到磁盘中。 producer不必去发现其他的nsqd节点，他们总是可以向本地nsqd实例发布消息。nsqd节点首先会向nsqlookup广播他们的位置信息，一旦它们注册成功，consumer将会从nsqlookup服务器节点上发现所有包含事件topic的nsqd节点。<br><br>
             
             </p><p class="more">
-                <a href="http://fengxinjie.club/2019/04/24/NSQ/">阅读剩下更多</a>
+                <a href="http://fengxinjie-bupt.github.io/2019/04/24/NSQ/">阅读剩下更多</a>
             </p>
         </div>
         <div class="post-thumbnail" data-img>
-            <a href="http://fengxinjie.club/2019/04/24/NSQ/" title="NSQ知识总结">
+            <a href="http://fengxinjie-bupt.github.io/2019/04/24/NSQ/" title="NSQ知识总结">
                 
                     <!--
                     <img src="/img/blog_thumbnail/11.jpg" class="thumbnail">
@@ -182,7 +182,7 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="http://fengxinjie.club/2019/04/19/go_test/">
+    	<a href="http://fengxinjie-bupt.github.io/2019/04/19/go_test/">
     		Go语言测试
     	</a>
     </h3>
@@ -208,11 +208,11 @@
                 <h4 id="测试简介"><a href="#测试简介" class="headerlink" title="测试简介"></a>测试简介</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;Go测试程序分为三种，即：功能测试（test）、基准测试（benchmark，也称性能测试），以及示例测试（example）。测试源码文件的主名称应该以被测源码文件的主名称为前导，并且必须以“_test”为后缀。例如，如果被测源码文件的名称为 demo52.go，那么针对它的测试源码文件的名称就应该是 demo52_test.go。每个测试源码文件都必须至少包含一个测试函数。并且，从语法上讲，每个测试源码文件中，都可以包含用来做任何一类测试的测试函数，即使把这三类测试函数都塞进去也没有问题。<br>&nbsp;&nbsp;&nbsp;&nbsp;对于功能测试函数来说，其名称必须以Test为前缀，并且参数列表中只应有一个<code>*testing.T</code>类型的参数声明。对于性能测试函数来说，其名称必须以Benchmark为前缀，并且唯一参数的类型必须是<code>*testing.B</code>类型的。对于示例测试函数来说，其名称必须以Example为前缀，但对函数的参数列表没有强制规定。<br>
             
             </p><p class="more">
-                <a href="http://fengxinjie.club/2019/04/19/go_test/">阅读剩下更多</a>
+                <a href="http://fengxinjie-bupt.github.io/2019/04/19/go_test/">阅读剩下更多</a>
             </p>
         </div>
         <div class="post-thumbnail" data-img>
-            <a href="http://fengxinjie.club/2019/04/19/go_test/" title="Go语言测试">
+            <a href="http://fengxinjie-bupt.github.io/2019/04/19/go_test/" title="Go语言测试">
                 
                     <!--
                     <img src="/img/blog_thumbnail/0.jpg" class="thumbnail">
@@ -235,7 +235,7 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="http://fengxinjie.club/2019/03/18/interview/">
+    	<a href="http://fengxinjie-bupt.github.io/2019/03/18/interview/">
     		面试常见问题总结
     	</a>
     </h3>
@@ -266,11 +266,11 @@
 </ul>
             
             <p class="more">
-                <a href="http://fengxinjie.club/2019/03/18/interview/">阅读剩下更多</a>
+                <a href="http://fengxinjie-bupt.github.io/2019/03/18/interview/">阅读剩下更多</a>
             </p>
         </div>
         <div class="post-thumbnail" data-img>
-            <a href="http://fengxinjie.club/2019/03/18/interview/" title="面试常见问题总结">
+            <a href="http://fengxinjie-bupt.github.io/2019/03/18/interview/" title="面试常见问题总结">
                 
                     <!--
                     <img src="/img/blog_thumbnail/4.jpg" class="thumbnail">
@@ -293,7 +293,7 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="http://fengxinjie.club/2019/03/13/Cplusplus/">
+    	<a href="http://fengxinjie-bupt.github.io/2019/03/13/Cplusplus/">
     		C++面试题总结
     	</a>
     </h3>
@@ -320,11 +320,11 @@
 <li><strong>static/const/extern</strong>:static与extern是一对“水火不容”的家伙，也就是说extern和static不能同时修饰一个变量。static限制了其链接属性，被static修饰的全局变量只能被该包含该定义的文件访问。const数据成员只在某个对象生存期内是常量，而对于整个类而言却是可变的。因为类可以创建多个对象，不同的对象其const数据成员的值可以不同，所以不能在类声明中初始化const数据成员。static const初始化在类体外进行，初始化时不加该成员的访问权限控制符private，public等，并且初始化时使用作用域运算符来标明它所属类，因此，静态数据成员是类的成员，而不是对象的成员。static用于函数定义时，或用于代码块之外的变量声明时，static关键字用于修改标识符的链接属性，从external改为internal，但标识符的存储类型和作用域不受影响。用这种方式声明的函数或变量只能在声明他们的源文件中访问。当它用于代码块内部的变量声明时，static关键字用于修改变量的存储类型。从自动变量修改为静态变量，但变量的链接属性和作用域不受影响。用这种方式声明的变量在程序执行之前创建，并在程序的整个执行期间一直存在。<br>
             
             <p class="more">
-                <a href="http://fengxinjie.club/2019/03/13/Cplusplus/">阅读剩下更多</a>
+                <a href="http://fengxinjie-bupt.github.io/2019/03/13/Cplusplus/">阅读剩下更多</a>
             </p>
         </li></ul></div>
         <div class="post-thumbnail" data-img>
-            <a href="http://fengxinjie.club/2019/03/13/Cplusplus/" title="C++面试题总结">
+            <a href="http://fengxinjie-bupt.github.io/2019/03/13/Cplusplus/" title="C++面试题总结">
                 
                     <!--
                     <img src="/img/blog_thumbnail/1.jpg" class="thumbnail">
@@ -347,7 +347,7 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="http://fengxinjie.club/2019/03/13/algorithm(1)/">
+    	<a href="http://fengxinjie-bupt.github.io/2019/03/13/algorithm(1)/">
     		常见算法总结
     	</a>
     </h3>
@@ -376,11 +376,11 @@
 </ul>
             
             <p class="more">
-                <a href="http://fengxinjie.club/2019/03/13/algorithm(1)/">阅读剩下更多</a>
+                <a href="http://fengxinjie-bupt.github.io/2019/03/13/algorithm(1)/">阅读剩下更多</a>
             </p>
         </div>
         <div class="post-thumbnail" data-img>
-            <a href="http://fengxinjie.club/2019/03/13/algorithm(1)/" title="常见算法总结">
+            <a href="http://fengxinjie-bupt.github.io/2019/03/13/algorithm(1)/" title="常见算法总结">
                 
                     <!--
                     <img src="/img/blog_thumbnail/2.jpg" class="thumbnail">
@@ -403,7 +403,7 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="http://fengxinjie.club/2019/01/02/bit_count/">
+    	<a href="http://fengxinjie-bupt.github.io/2019/01/02/bit_count/">
     		位运算总结
     	</a>
     </h3>
@@ -429,11 +429,11 @@
                 <h5 id="符号表示"><a href="#符号表示" class="headerlink" title="符号表示"></a>符号表示</h5><p>&nbsp;&nbsp;&nbsp;&nbsp;<code>&amp;</code>与, <code>|</code>或, <code>^</code>异或, <code>~</code>取反, <code>&lt;&lt;</code>左移(高位丢弃，低位补0), <code>&gt;&gt;</code>右移<br>
             
             </p><p class="more">
-                <a href="http://fengxinjie.club/2019/01/02/bit_count/">阅读剩下更多</a>
+                <a href="http://fengxinjie-bupt.github.io/2019/01/02/bit_count/">阅读剩下更多</a>
             </p>
         </div>
         <div class="post-thumbnail" data-img>
-            <a href="http://fengxinjie.club/2019/01/02/bit_count/" title="位运算总结">
+            <a href="http://fengxinjie-bupt.github.io/2019/01/02/bit_count/" title="位运算总结">
                 
                     <!--
                     <img src="/img/blog_thumbnail/8.jpg" class="thumbnail">
@@ -456,7 +456,7 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="http://fengxinjie.club/2018/12/21/duotai/">
+    	<a href="http://fengxinjie-bupt.github.io/2018/12/21/duotai/">
     		C++多态总结
     	</a>
     </h3>
@@ -482,11 +482,11 @@
                 <p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>虚函数</strong>：C++的虚函数主要作用是“运行时多态”，父类中提供虚函数的实现，为子类提供默认的函数实现，子类可以重写父类的虚函数实现子类的特殊化。C++中包含纯虚函数的类，被称为是“抽象类”。抽象类不能使用new出对象，只有实现了这个纯虚函数的子类才能new出对象。普通函数是静态编译的，没有运行时多态，只会根据指针或引用的“字面值”类对象，调用自己的普通函数。<br>
             
             </p><p class="more">
-                <a href="http://fengxinjie.club/2018/12/21/duotai/">阅读剩下更多</a>
+                <a href="http://fengxinjie-bupt.github.io/2018/12/21/duotai/">阅读剩下更多</a>
             </p>
         </div>
         <div class="post-thumbnail" data-img>
-            <a href="http://fengxinjie.club/2018/12/21/duotai/" title="C++多态总结">
+            <a href="http://fengxinjie-bupt.github.io/2018/12/21/duotai/" title="C++多态总结">
                 
                     <!--
                     <img src="/img/blog_thumbnail/10.jpg" class="thumbnail">
@@ -509,7 +509,7 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="http://fengxinjie.club/2018/12/20/sort/">
+    	<a href="http://fengxinjie-bupt.github.io/2018/12/20/sort/">
     		排序算法总结
     	</a>
     </h3>
@@ -536,11 +536,11 @@
 <li><strong>冒泡排序</strong>：冒泡排序只会操作相邻的两个数据。每次冒泡操作都会对相邻的两个元素进行比较，看是否满足大小关系要求。如果不满足就让它俩互换。一次冒泡会让至少一个元素移动到它应该在的位置，重复 n 次，就完成了 n 个数据的排序工作(原地排序，稳定）<br>
             
             <p class="more">
-                <a href="http://fengxinjie.club/2018/12/20/sort/">阅读剩下更多</a>
+                <a href="http://fengxinjie-bupt.github.io/2018/12/20/sort/">阅读剩下更多</a>
             </p>
         </li></ul></div>
         <div class="post-thumbnail" data-img>
-            <a href="http://fengxinjie.club/2018/12/20/sort/" title="排序算法总结">
+            <a href="http://fengxinjie-bupt.github.io/2018/12/20/sort/" title="排序算法总结">
                 
                     <!--
                     <img src="/img/blog_thumbnail/5.jpg" class="thumbnail">
@@ -563,7 +563,7 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="http://fengxinjie.club/2018/12/15/sync_map/">
+    	<a href="http://fengxinjie-bupt.github.io/2018/12/15/sync_map/">
     		Go语言并发安全字典
     	</a>
     </h3>
@@ -589,11 +589,11 @@
                 <p>&nbsp;&nbsp;&nbsp;&nbsp;Go语言自带的字典类型map并不是并发安全的。换句话说，在同一时间段内，让不同 goroutine 中的代码，对同一个字典进行读写操作是不安全的。字典值本身可能会因这些操作而产生混乱，相关的程序也可能会因此发生不可预知的问题。Go 语言官方终于在 2017 年发布的 Go 1.9 中正式加入了并发安全的字典类型sync.Map，可以显著地减少锁的争用，key和value均为空接口。基本用法如下代码:<br>
             
             </p><p class="more">
-                <a href="http://fengxinjie.club/2018/12/15/sync_map/">阅读剩下更多</a>
+                <a href="http://fengxinjie-bupt.github.io/2018/12/15/sync_map/">阅读剩下更多</a>
             </p>
         </div>
         <div class="post-thumbnail" data-img>
-            <a href="http://fengxinjie.club/2018/12/15/sync_map/" title="Go语言并发安全字典">
+            <a href="http://fengxinjie-bupt.github.io/2018/12/15/sync_map/" title="Go语言并发安全字典">
                 
                     <!--
                     <img src="/img/blog_thumbnail/6.jpg" class="thumbnail">
@@ -616,7 +616,7 @@
         <!-- 文章标题 -->
         
     <h3 class="post-title">
-    	<a href="http://fengxinjie.club/2018/12/14/git/">
+    	<a href="http://fengxinjie-bupt.github.io/2018/12/14/git/">
     		Git学习之路
     	</a>
     </h3>
@@ -646,11 +646,11 @@
 </ul>
             
             <p class="more">
-                <a href="http://fengxinjie.club/2018/12/14/git/">阅读剩下更多</a>
+                <a href="http://fengxinjie-bupt.github.io/2018/12/14/git/">阅读剩下更多</a>
             </p>
         </div>
         <div class="post-thumbnail" data-img>
-            <a href="http://fengxinjie.club/2018/12/14/git/" title="Git学习之路">
+            <a href="http://fengxinjie-bupt.github.io/2018/12/14/git/" title="Git学习之路">
                 
                     <!--
                     <img src="/img/blog_thumbnail/7.jpg" class="thumbnail">
@@ -689,13 +689,13 @@
     </li>
     
     <li>
-        <a href="/categories/开发工具/">开发工具</a>
-        <span class="badge">(2)</span>
+        <a href="/categories/云计算/">云计算</a>
+        <span class="badge">(5)</span>
     </li>
     
     <li>
-        <a href="/categories/云计算/">云计算</a>
-        <span class="badge">(5)</span>
+        <a href="/categories/开发工具/">开发工具</a>
+        <span class="badge">(2)</span>
     </li>
     
     <li>
@@ -722,25 +722,25 @@
         <!-- 文章标签 -->
 <div class="widget-bd tag-wrap">
   
-    <a class="tag-item" href="/tags/C/" title="C++">C++ (9)</a>
-  
     <a class="tag-item" href="/tags/Go/" title="Go">Go (5)</a>
   
     <a class="tag-item" href="/tags/算法/" title="算法">算法 (3)</a>
   
-    <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
-  
     <a class="tag-item" href="/tags/Kubernetes/" title="Kubernetes">Kubernetes (3)</a>
   
-    <a class="tag-item" href="/tags/分布式/" title="分布式">分布式 (2)</a>
+    <a class="tag-item" href="/tags/C/" title="C++">C++ (9)</a>
   
     <a class="tag-item" href="/tags/docker/" title="docker">docker (1)</a>
   
+    <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
+  
+    <a class="tag-item" href="/tags/分布式/" title="分布式">分布式 (2)</a>
+  
     <a class="tag-item" href="/tags/面试总结/" title="面试总结">面试总结 (1)</a>
   
-    <a class="tag-item" href="/tags/数据库/" title="数据库">数据库 (1)</a>
-  
     <a class="tag-item" href="/tags/NSQ/" title="NSQ">NSQ (1)</a>
+  
+    <a class="tag-item" href="/tags/数据库/" title="数据库">数据库 (1)</a>
   
     <a class="tag-item" href="/tags/openstack/" title="openstack">openstack (1)</a>
   
